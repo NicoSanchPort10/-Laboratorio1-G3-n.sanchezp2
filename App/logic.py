@@ -116,10 +116,10 @@ def load_tags(catalog, filename):
     tagsfile = os.path.join(data_dir, filename)
     catalog["tags"] = set.load_set(tags, tagsfile)
 
-    if set.is_empty(tags):
+    if empty_tags(catalog):
         return 0
     else:
-        return set.size(tags)
+        return tag_size(tags)
 
 
 def load_books_tags(catalog, filename):
@@ -142,10 +142,10 @@ def load_books_tags(catalog, filename):
     # La función debe retornar el tamaño del conjunto de tags de los libros.
     book_tags_file = os.path.join(data_dir, filename)
     catalog["book_tags"] = set.load_set(catalog["book_tags"], book_tags_file)
-    if set.is_empty(catalog["book_tags"]):
+    if empty_book_tags(catalog):
         return 0
     else:
-        return set.size(catalog["book_tags"])
+        return book_tag_size(catalog)
 # Funciones de consulta
 
 
